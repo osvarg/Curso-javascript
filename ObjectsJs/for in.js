@@ -18,3 +18,8 @@ console.log(persona.edad);
 console.log(persona.nombreCompleto());
 console.log(persona);
 
+//for in
+for(propiedad in persona){
+    console.log(propiedad)
+    console.log(persona[propiedad])
+}

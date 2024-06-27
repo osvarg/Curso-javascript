@@ -1,6 +1,3 @@
-let x = 10;
-console.log(x.length)
-
 let persona = {
     nombre: 'Juan',
     apellido: 'Perez',
@@ -11,10 +8,9 @@ let persona = {
     }
 }
 
-console.log(persona.nombre);
-console.log(persona['apellido'])
-console.log(persona.email);
-console.log(persona.edad);
-console.log(persona.nombreCompleto());
+persona.tel = '55443322';
+console.log(persona.tel);
+persona.tel = '11223344';
 console.log(persona);
-
+delete persona.tel;
+console.log(persona)
