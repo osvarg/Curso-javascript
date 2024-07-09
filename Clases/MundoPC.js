@@ -86,5 +86,53 @@ class Monitor {
         return this._marca = marca;
     }
 
-    get
+    get tamaño(){
+        return this._tamaño;
+    }
+
+    set tamaño(tamaño){
+        return this._tamaño = tamaño;
+    }
+
+    toString(){
+        return `idMonitor: ${this._idMonitor}, marca: ${this._marca}, tamaño: ${this._tamaño} `;
+    }
 }
+
+let monitor1 = new Monitor('ASUS', 10.4);
+console.log(monitor1.toString());
+
+class Computadora {
+    static contadorComputadoras = 0;
+
+    constructor(nombre){
+        this._idComputadora = ++Computadora.contadorComputadoras;
+        this._nombre = nombre;
+        this._monitor = [];
+        this._teclado = [];
+        this._raton = [];
+    }
+
+    get idComputadora(){
+        return this._idComputadora;
+    }
+
+    get nombre(){
+        return this._nombre;
+    }
+
+    set nombre(nombre){
+        return this._nombre = nombre;
+    }
+
+    get monitor(){
+        return this._monitor;
+    }
+
+    set monitor(monitor){
+        this._monitor.push(monitor);
+    }
+}
+
+let computadora1 = new Computadora('Computadora principal', monitor1, teclado1, raton1)
+console.log(computadora1)
