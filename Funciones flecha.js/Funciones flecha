@@ -1,0 +1,37 @@
+let miFuncion = function(){
+    console.log('levantense bola de huevones');
+}
+
+//let miFuncionFlecha = () => {
+//    console.log('hola mundo');
+//}
+
+//const miFuncionFlecha = () => console.log('hola mundo');
+
+/*const saludar = () => {
+    return 'Saludos putos todos':
+}*/
+
+const saludar = () => 'Saludos desde función flecha';
+
+console.log(saludar());
+
+miFuncion()
+
+const regresaObjeto =  () => ({nombre: 'Eleuterio', apellido:'Lopez'});
+console.log(regresaObjeto());
+
+const funcionConParametros = function(mensaje){
+    console.log(mensaje);
+}
+
+//const funcionConParámetros = (mensaje) => console.log(mensaje)
+const funcionConParámetros = mensaje => console.log(mensaje);
+funcionConParámetros('buenas buenas hijoeperra');
+
+//const funcionConVariosParametros = (op1, op2) => op1 + op2;
+const funcionConVariosParametros = (op1, op2) => {
+    let resultado = op1 + op2;
+    return `Resultado: ${resultado}`;
+}
+console.log(funcionConVariosParametros(2,5))

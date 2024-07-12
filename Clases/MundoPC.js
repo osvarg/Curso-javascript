@@ -1,3 +1,4 @@
+"use strict"
 class DispositivoEntrada {
     constructor(tipoEntrada, marca){
         this._tipoEntrada = tipoEntrada;
@@ -59,12 +60,6 @@ class Teclado extends DispositivoEntrada{
     }
 }
 
-let raton1 = new Raton('Bluetooth', 'Logitech');
-console.log(raton1.toString());
-
-let teclado1 = new Teclado('USB', 'HP');
-console.log(teclado1.toString());
-
 class Monitor {
     static contadorMonitores = 0;
 
@@ -99,40 +94,74 @@ class Monitor {
     }
 }
 
-let monitor1 = new Monitor('ASUS', 10.4);
-console.log(monitor1.toString());
-
 class Computadora {
     static contadorComputadoras = 0;
 
-    constructor(nombre){
+    constructor(nombre, monitor, teclado, raton){
         this._idComputadora = ++Computadora.contadorComputadoras;
         this._nombre = nombre;
-        this._monitor = [];
-        this._teclado = [];
-        this._raton = [];
+        this._monitor = monitor;
+        this._teclado = teclado;
+        this._raton = raton;
     }
 
-    get idComputadora(){
-        return this._idComputadora;
-    }
-
-    get nombre(){
-        return this._nombre;
-    }
-
-    set nombre(nombre){
-        return this._nombre = nombre;
-    }
-
-    get monitor(){
-        return this._monitor;
-    }
-
-    set monitor(monitor){
-        this._monitor.push(monitor);
+    toString(){
+        return `Computadora ${this._idComputadora}: ${this._nombre} \n ${this._monitor} \n ${this._raton} \n ${this._teclado}`
     }
 }
 
-let computadora1 = new Computadora('Computadora principal', monitor1, teclado1, raton1)
-console.log(computadora1)
+class Orden {
+    static contadorOrdenes = 0;
+
+    constructor(){
+        this._idOrden = ++Orden.contadorOrdenes;
+        this._computadoras = []
+    }
+
+    get idOrden(){
+        return this._idOrden;
+    }
+
+    agregarComputadora(computadora){
+        this._computadoras.push(computadora);
+    }
+
+    mostrarOrden(){
+        let ordenComputadoras = '';
+        for( let computadora of this._computadoras){
+            ordenComputadoras += `\n ${computadora}`;
+        }
+
+        console.log(`Orden: ${this._idOrden} Computadoras: ${ordenComputadoras}`);
+    }
+
+}
+
+
+let raton1 = new Raton('Bluetooth', 'Logitech');
+console.log(raton1.toString());
+let raton2 = new Raton('USB', 'Hyper X');
+
+let teclado1 = new Teclado('USB', 'HP');
+console.log(teclado1.toString());
+let teclado2 = new Teclado('Wifi', 'Razer');
+
+let monitor1 = new Monitor('ASUS', 10.4);
+console.log(monitor1.toString());
+let monitor2 = new Monitor('HP', 24);
+
+let computadora1 = new Computadora('HP', monitor1, teclado1, raton1);
+console.log(`${computadora1}`);
+console.log(computadora1.toString());
+let computadora2 = new Computadora('Lenovo', monitor2, teclado2, raton2);
+
+let orden1 = new Orden();
+orden1.agregarComputadora(computadora1);
+orden1.agregarComputadora(computadora2);
+orden1.agregarComputadora(computadora1)
+orden1.mostrarOrden()
+
+let orden2 = new Orden();
+orden2.agregarComputadora(computadora2);
+orden2.agregarComputadora(computadora1);
+orden2.mostrarOrden();
