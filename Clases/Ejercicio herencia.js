@@ -17,7 +17,7 @@ class Persona{
     }
 
     set nombre(nombre){
-        return this._nombre = nombre;
+        this._nombre = nombre;
     }
 
     get apellido(){
@@ -25,7 +25,7 @@ class Persona{
     }
 
     set apellido(apellido){
-        return this._apellido = apellido;
+        this._apellido = apellido;
     }
 
     get edad(){
@@ -33,7 +33,7 @@ class Persona{
     }
 
     set edad(edad){
-        return this._edad = edad
+        this._edad = edad
     }
 
     toString(){
@@ -60,7 +60,7 @@ class Empleado extends Persona {
     }
 
     set sueldo(sueldo){
-        return this._sueldo = sueldo;
+        this._sueldo = sueldo;
     }
 
     toString(){
